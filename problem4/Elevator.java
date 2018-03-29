@@ -11,6 +11,14 @@ class Request {
 		dest = _dest;
 	}
 
+	public int getOrig() {
+		return orig;
+	}
+
+	public int getDest() {
+		return dest;
+	}
+
 	public boolean isRequestUp() {
 		return orig < dest;
 	}
@@ -25,9 +33,9 @@ public class Elevator {
 	private int[] embarks;
 	private int[] disembarks;
 	private int currentFloor;
-	
+
 	Elevator() {
-		currentFloor = 0;
+		currentFloor = 1;
 		point = 0;
 	}
 
@@ -39,24 +47,40 @@ public class Elevator {
 		return currentFloor;
 	}
 
-	public boolean isElevatorGoingUp() {
-
+	public void movingToFloor(int floorId) {
+		currentFloor = floorId;
+		point++;
 	}
 
-	public boolean isElevatorGoingDown() {
+	public void movingUp() {
+		currentFloor++;
+		point++;
+	}
 
+	public void movingDown() {
+		currentFloor--;
+		point++
 	}
 
 	public static void main(String[] args) {
 		Elevator elavator = new Elevator();
 
 		Request a = new Request("p1", 1, 5);
-		Request a = new Request("p2", 2, 3);
-		Request a = new Request("p3", 2, 4);
-		Request a = new Request("p4", 3, 4);
-		Request a = new Request("p5", 3, 1);
-		Request a = new Request("ps6", 5, 1);
+		Request b = new Request("p2", 2, 3);
+		Request c = new Request("p3", 2, 4);
+		Request c = new Request("p4", 3, 4);
+		Request d = new Request("p5", 3, 1);
+		Request e = new Request("ps6", 5, 1);
 
+		ArrayList<Request> req = new ArrayList<Request>();
+		req.add(a);req.add(b);req.add(c);req.add(d);req.add(e);
 
+		while (req.size() > 0) {
+			for (Request r : req) { 
+				if (r.getOrig == elevator.getCurrentFloor() || r.getDest == elevator.getCurrentFloor) {
+					
+				}
+	      	}
+		}
 	}
 }
